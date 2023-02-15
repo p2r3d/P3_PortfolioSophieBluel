@@ -137,6 +137,16 @@ li:hover {
 	width: 100%;
 
 }
+
+.cardFigcaption {
+	color: #3D3D3D;
+}
+
+.cardImg {
+	width: 100%;
+	
+}
+
 #contact {
 	width: 50%;
 margin: auto;

@@ -8,31 +8,17 @@ async function fetchAPI() {
     const data = await response.json();
     return data;
   }
-  catch (erreur) {
-    console.error(erreur);
-  }
-}
-
-// AFFICHAGE DE LA GALERIE
-function displayWorks(worksSent) {
-  document.querySelector(".gallery").innerHTML = "";
-  for (let i in worksSent) {
-    let workSenti = worksSent[i];
-    const workCard = createElement("figure");
-    document.querySelector(".gallery").appendChild(workCard);
-    
-    const workImg = createElement("img","cardImg");
-    workCard.appendChild(workImg);
-    workImg.setAttribute("crossorigin", "anonymous");
-    workImg.src = workSenti.imageUrl;
-
-    const workTitle = createElement("figcaption", "cardFigcaption");
-    workCard.appendChild(workTitle);
-    workTitle.innerText = workSenti.title;
+  catch (error) {
+    console.error(error);
   }
 }
 
 fetchAPI().then(works => {
-  // -----Affichage des travaux
-  displayWorks(works);
+  // -----Affichage galerie
+  // on affiche les travaux et on récupère la liste des catégories
+  const categoriesNames = displayWorks(works);
+  // on affiche les boutons de filtres par catégorie
+  displayFilters(works, categoriesNames);
 });
+
+

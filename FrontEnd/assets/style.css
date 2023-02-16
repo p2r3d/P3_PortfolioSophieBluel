@@ -398,6 +398,7 @@ a {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	outline:none;
 }
 
 /* bouton envoyer*/
@@ -456,6 +457,7 @@ a {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	outline: none;
 }
 
 #contact label {
@@ -466,6 +468,7 @@ a {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	resize: none;
+	outline: none;
 }
 
 input[type="submit"] {

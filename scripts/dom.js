@@ -2,7 +2,7 @@
 function createElement(tagName, classes = []) {
   const element = document.createElement(tagName);
   if (classes.length>0) {
-    element.classList.add(...classes);
+    element.classList.add(...classes); // ... spread opérator, décompose le tableau en liste d'éléments individuels
   }
   return element;
 }
@@ -16,15 +16,18 @@ function displayWorks(worksSent) {
     const workCard = createElement("figure");
     document.querySelector(".gallery").appendChild(workCard);
 
+    // affichage de l'image
     const workImg = createElement("img", ["cardImg"]);
     workCard.appendChild(workImg);
     workImg.setAttribute("crossorigin", "anonymous");
     workImg.src = workSenti.imageUrl;
 
+    // affichage tu titre de l'image
     const workTitle = createElement("figcaption", ["cardfigcaption"]);
     workCard.appendChild(workTitle);
     workTitle.innerText = workSenti.title;
-    // récup de la catégorie 
+
+    // récup de la catégorie pour l'affichage ultérieur des filtres
     categoriesNames.add(workSenti.category.name);
   }
   return (categoriesNames);

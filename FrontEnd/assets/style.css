@@ -146,6 +146,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin: 50px 0
 }
 
@@ -178,13 +179,15 @@ h2 {
 
 nav ul {
 	display: flex;
-	align-items: center;
 	list-style-type: none;
 	justify-content: space-between;
+	align-items: center;
 	gap: 30px;
 }
 
 nav li {
+	display: flex;
+	align-items: center;
 	padding: 0 10px;
 	font-size: 1.2em;
 }
@@ -203,7 +206,7 @@ a {
 	height: 20px;
 }
 
-.headerWithBand {
+/*.headerWithBand {
 	width: 100%;
 	position: absolute;
 	top: 0;
@@ -243,7 +246,7 @@ a {
 	font-family: 'Syne';
 	font-size: 14px;
 }
-
+*/
 #introduction {
 	display: flex;
 	align-items: center;
@@ -310,7 +313,7 @@ a {
 	flex-direction: row;
 	width: 100%;
 	justify-content: center;
-	margin-bottom: 21px;
+	margin-bottom: 51px;
 	gap: 10px;
 }
 

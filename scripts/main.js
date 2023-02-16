@@ -14,9 +14,9 @@ async function fetchAPI() {
 }
 
 fetchAPI().then(works => {
-  // -----Affichage galerie
   // on affiche les travaux et on récupère la liste des catégories
   const categoriesNames = displayWorks(works);
+  
   // on affiche les boutons de filtres par catégorie
   displayFilters(works, categoriesNames);
 });

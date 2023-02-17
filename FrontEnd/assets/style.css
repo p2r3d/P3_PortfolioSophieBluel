@@ -414,6 +414,9 @@ a {
 	border-radius: 60px;
 	padding: 0 40px;
 }
+#idSubmit:hover {
+	background-color: #0E2F28;
+}
 
 /* lien mot de passe oublié*/
 #idForgottenPwd {

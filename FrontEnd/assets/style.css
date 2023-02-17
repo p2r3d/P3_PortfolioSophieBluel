@@ -359,52 +359,66 @@ a {
 	width: 100%;
 }
 
-/* partie Formulaire Login */
+/* --------------partie Formulaire Login -----------------*/
+#idLoginLi {
+	font-weight: 700;
+}
 
-/* div englobant tout le formulaire*/
+#login {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#loginTitle {
+	text-align: center;
+	padding: 37px;
+}
+
 .divForm {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 30px;
 	height: 520px;
-	margin-top: 150px;
-}
-
-.divForm #contact {
-	width: 60%;
-}
-
-.divForm #contact label,
-.divForm #idPwdLabel {
-	display: flex;
-	margin: 0px;
 	text-align: left;
+	color:#3D3D3D;
 }
 
-/* div englobant les éléments email, password, envoi+motDePasseOublié*/
 .divFormElements {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	width: 70%;
+	width: 40%;
+}
+
+#idEmail,
+#idPwd {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 /* bouton envoyer*/
 #idSubmit {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 50%;
-	margin: auto;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
 	background-color: #1D6154;
-	color: #FFFFFF;
+	margin: 2em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px;
+	padding: 0 40px;
 }
 
 /* lien mot de passe oublié*/
 #idForgottenPwd {
-	margin-top: 20px;
+	text-align: center;
 	color: inherit;
+	text-decoration: underline;
 }
 
 /* éventuel message erreur authentification*/

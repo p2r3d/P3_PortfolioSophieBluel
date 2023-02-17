@@ -19,6 +19,10 @@ fetchAPI().then(works => {
   
   // on affiche les boutons de filtres par catégorie
   displayFilters(works, categoriesNames);
+
+  if (sessionStorage.getItem("access_token")) {
+    alert('ok');
+  }
 });
 
 

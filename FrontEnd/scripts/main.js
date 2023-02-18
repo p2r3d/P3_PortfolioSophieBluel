@@ -21,7 +21,7 @@ fetchAPI().then(works => {
   displayFilters(works, categoriesNames);
 
   if (sessionStorage.getItem("access_token")) {
-    alert('ok');
+    loggedUser();
   }
 });
 

@@ -107,6 +107,10 @@ section {
 	display: block;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	line-height: 1;
 	background-color: #FFFEF8;
@@ -167,7 +171,6 @@ h1>span {
 	font-family: 'Work Sans';
 	font-size: 10px;
 	letter-spacing: 0.1em;
-	;
 }
 
 h2 {
@@ -190,9 +193,10 @@ nav li {
 	align-items: center;
 	padding: 0 10px;
 	font-size: 1.2em;
+	font-weight: 400;
 }
 
-li:hover {
+header li:hover {
 	color: #B1663C;
 }
 
@@ -264,7 +268,6 @@ a {
 	display: block;
 	margin: auto;
 	width: 108%;
-	padding-top: 40px;
 }
 
 #introduction article {
@@ -278,20 +281,25 @@ a {
 
 #introduction p {
 	margin-bottom: 0.5em;
+	color: #3D3D3D;
+	font-family: 'Work Sans';
+	font-weight: 400;
 }
 
-.link-modify {
+.modifyLink {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
+	align-items: center;
 	gap: 5px;
 	margin: 10px 0;
+	padding-bottom: 51px;
 }
 
-.div-link-modify {
+.projectTitle {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	gap: 50px;
-	padding-bottom: 45px;
+	gap: 31px;
 }
 
 .fa-regular {
@@ -304,7 +312,7 @@ a {
 }
 
 #portfolio {
-	margin: 70px 95px;
+	margin: 60px 95px;
 }
 
 /* partie FILTRES */
@@ -353,6 +361,8 @@ a {
 
 .cardfigcaption {
 	color: #3D3D3D;
+	font-size: 13px;
+	font-weight: 400;
 }
 
 .card img {
@@ -372,7 +382,7 @@ a {
 
 #loginTitle {
 	text-align: center;
-	padding: 37px;
+	padding-top: 150px;
 }
 
 .divForm {
@@ -382,7 +392,7 @@ a {
 	gap: 30px;
 	height: 520px;
 	text-align: left;
-	color:#3D3D3D;
+	color: #3D3D3D;
 }
 
 .divFormElements {
@@ -398,7 +408,7 @@ a {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	outline:none;
+	outline: none;
 }
 
 /* bouton envoyer*/
@@ -414,6 +424,7 @@ a {
 	border-radius: 60px;
 	padding: 0 40px;
 }
+
 #idSubmit:hover {
 	background-color: #0E2F28;
 }
@@ -433,7 +444,7 @@ a {
 }
 
 
-/* partie Contact */
+/* --------------partie Contact-------------- */
 #contact {
 	width: 34%;
 	margin: auto;
@@ -450,14 +461,13 @@ a {
 
 #contact form {
 	text-align: left;
-	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
+	height: 37px;
+	font-size: 1em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	outline: none;
@@ -465,6 +475,14 @@ a {
 
 #contact label {
 	margin: 2em 0 1em 0;
+	color: #3D3D3D;
+	font-weight: 500;
+}
+
+#contact p {
+	color: #3D3D3D;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 #contact textarea {
@@ -485,6 +503,7 @@ input[type="submit"] {
 	border-radius: 60px;
 }
 
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -492,12 +511,20 @@ footer nav ul {
 	/*margin: 2em;*/
 	background-color: #FFFFFF;
 	height: 60px;
+	font-size: 1em;
+}
+
+footer nav ul li {
+	font-family: 'Work Sans';
+	font-size: 1em;
+	font-weight: 300;
 }
 
 .hidden {
 	display: none;
 }
 
+/* --------------partie Modale-------------- */
 .modal {
 	display: flex;
 	align-items: center;

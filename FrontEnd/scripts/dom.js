@@ -1,4 +1,4 @@
-// CrEATION D'UN ELEMENT HTML
+// CREATION D'UN ELEMENT HTML
 function createElement(tagName, classes = []) {
   const element = document.createElement(tagName);
   if (classes.length>0) {
@@ -10,6 +10,7 @@ function createElement(tagName, classes = []) {
 // AFFICHAGE DE LA GALERIE
 function displayWorks(worksSent) {
   document.querySelector(".gallery").innerHTML = "";
+  HideWhenLogged();
   const categoriesNames = new Set();
   for (let i in worksSent) {
     let workSenti = worksSent[i];
@@ -30,6 +31,7 @@ function displayWorks(worksSent) {
     // récup de la catégorie pour l'affichage ultérieur des filtres
     categoriesNames.add(workSenti.category.name);
   }
+  
   return (categoriesNames);
 }
 
@@ -72,4 +74,27 @@ function updateFilter(filterBtn) {
     filters[i].classList.remove("SelectedFilter");
   }
   filterBtn.classList.add("SelectedFilter");
+}
+
+// AFFICHAGE QUAND LOGGED
+function loggedUser() {
+  const filters = document.getElementsByClassName("filters");
+  filters[0].classList.add("hidden");
+  const modifyLinks = document.getElementsByClassName("modifyLink");
+  for (let modifyLink of modifyLinks) {
+    modifyLink.style.display="flex";
+  }
+    const headBand = document.getElementsByClassName("divheadband");
+  headBand[0].style.display = "flex";
+    
+}
+
+// CACHAGE DU BANDEAU ET DES LIENS "MODIFIER"
+function HideWhenLogged() {
+  const modifyLinks = document.getElementsByClassName("modifyLink");
+  for (let modifyLink of modifyLinks){
+    modifyLink.classList.add("hidden");
+  }
+  const headBand = document.getElementsByClassName("divheadband");
+  headBand[0].classList.add("hidden");
 }

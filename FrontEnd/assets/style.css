@@ -148,12 +148,37 @@ body {
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 50px 0
+display: flex;
+justify-content: space-between;
 }
 
+.divHeader{
+	width:100%;
+}
+
+.divheadband {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
+	height: 50px;
+	gap: 10px;
+}
+
+.divLogoNav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height:60px;
+	padding-top:50px;
+	width:100%;
+}
+
+.headbandText {
+	display:flex;
+	gap:10px;
+	color: white;
+}
 section {
 	margin: 50px 95px;
 }
@@ -164,10 +189,12 @@ h1 {
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
+	/*margin: 50px;*/
 }
 
 h1>span {
+	display: flex;
 	font-family: 'Work Sans';
 	font-size: 10px;
 	letter-spacing: 0.1em;
@@ -182,10 +209,12 @@ h2 {
 
 nav ul {
 	display: flex;
-	list-style-type: none;
+	gap: 30px;
+	/*list-style-type: none;
 	justify-content: space-between;
 	align-items: center;
-	gap: 30px;
+	
+		margin-top: 50px;*/
 }
 
 nav li {
@@ -210,37 +239,6 @@ a {
 	height: 20px;
 }
 
-/*.headerWithBand {
-	width: 100%;
-	position: absolute;
-	top: 0;
-}
-
-.divheadband {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #000000;
-	height: 59px;
-	max-width: 1400px;
-	gap: 10px;
-	position: relative;
-	left: -130px;
-}
-
-.divLogoNav {
-	display: flex;
-	justify-content: space-between;
-	padding-top: 38px;
-	width: 100%;
-	height: 50px;
-	max-width: 1140px;
-}
-
-.headbandText {
-	color: white;
-}
-
 .publishBtn {
 	border-radius: 60px;
 	background-color: #FFFFFF;
@@ -250,18 +248,18 @@ a {
 	font-family: 'Syne';
 	font-size: 14px;
 }
-*/
+
 #introduction {
 	display: flex;
 	align-items: center;
+	padding-top: 108px;
 }
 
 #introduction figure {
 	flex: 1;
-	margin: 6em 0 6em 0;
 	display: flex;
 	flex-direction: column;
-	align-items: baseline;
+	align-items: center;
 }
 
 #introduction img {
@@ -286,19 +284,24 @@ a {
 	font-weight: 400;
 }
 
-.modifyLink {
+#divModifyLink {
 	display: flex;
 	flex-direction: row;
+	justify-content: start;
 	align-items: center;
+	width:100%;
+}
+.modifyLink {
+	display: flex;
 	gap: 5px;
 	margin: 10px 0;
-	padding-bottom: 51px;
 }
 
-.projectTitle {
+.divProjectTitle {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	align-items: center;;
 	gap: 31px;
 }
 
@@ -308,11 +311,11 @@ a {
 
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 51px;
+	padding: 50px 0;
 }
 
 #portfolio {
-	margin: 60px 95px;
+	margin: 0px 95px;
 }
 
 /* partie FILTRES */
@@ -344,7 +347,7 @@ a {
 .gallery {
 	width: 100%;
 	display: grid;
-	margin: auto;
+	margin: 50px auto;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
@@ -383,6 +386,7 @@ a {
 #loginTitle {
 	text-align: center;
 	padding-top: 150px;
+	padding-bottom: 40px;;
 }
 
 .divForm {
@@ -466,7 +470,7 @@ a {
 }
 
 #contact input {
-	height: 37px;
+	height: 51px;
 	font-size: 1em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -520,9 +524,6 @@ footer nav ul li {
 	font-weight: 300;
 }
 
-.hidden {
-	display: none;
-}
 
 /* --------------partie Modale-------------- */
 .modal {
@@ -580,4 +581,11 @@ footer nav ul li {
 
 .idPhotosGallery img {
 	width: 100%;
+}
+.hidden {
+	display: none;
+}
+
+.show {
+	display: inline-block;
 }

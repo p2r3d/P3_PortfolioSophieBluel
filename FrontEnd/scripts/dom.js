@@ -10,7 +10,7 @@ function createElement(tagName, classes = []) {
 // AFFICHAGE DE LA GALERIE
 function displayWorks(worksSent) {
   document.querySelector(".gallery").innerHTML = "";
-  HideModifyLinks();
+  HideWhenLogged();
   const categoriesNames = new Set();
   for (let i in worksSent) {
     let workSenti = worksSent[i];
@@ -80,20 +80,21 @@ function updateFilter(filterBtn) {
 function loggedUser() {
   const filters = document.getElementsByClassName("filters");
   filters[0].classList.add("hidden");
-  ShowModifyLinks();
+  const modifyLinks = document.getElementsByClassName("modifyLink");
+  for (let modifyLink of modifyLinks) {
+    modifyLink.style.display="flex";
+  }
+    const headBand = document.getElementsByClassName("divheadband");
+  headBand[0].style.display = "flex";
+    
 }
 
-// CACHAGE DES LIENS "MODIFIER"
-function HideModifyLinks() {
+// CACHAGE DU BANDEAU ET DES LIENS "MODIFIER"
+function HideWhenLogged() {
   const modifyLinks = document.getElementsByClassName("modifyLink");
   for (let modifyLink of modifyLinks){
     modifyLink.classList.add("hidden");
   }
-}
-// AFFICHAGE DES LIENS "MODIFIER"
-function ShowModifyLinks() {
-  const modifyLinks = document.getElementsByClassName("modifyLink");
-  for (let modifyLink of modifyLinks) {
-    modifyLink.style.display="block";
-  }
+  const headBand = document.getElementsByClassName("divheadband");
+  headBand[0].classList.add("hidden");
 }

@@ -23,7 +23,7 @@ function displayWorks(worksSent) {
     workImg.setAttribute("crossorigin", "anonymous");
     workImg.src = workSenti.imageUrl;
 
-    // affichage tu titre de l'image
+    // affichage du titre de l'image
     const workTitle = createElement("figcaption", ["cardfigcaption"]);
     workCard.appendChild(workTitle);
     workTitle.innerText = workSenti.title;
@@ -85,8 +85,7 @@ function loggedUser() {
     modifyLink.style.display="flex";
   }
     const headBand = document.getElementsByClassName("divheadband");
-  headBand[0].style.display = "flex";
-    
+  headBand[0].style.display = "flex";  
 }
 
 // CACHAGE DU BANDEAU ET DES LIENS "MODIFIER"
@@ -97,4 +96,40 @@ function HideWhenLogged() {
   }
   const headBand = document.getElementsByClassName("divheadband");
   headBand[0].classList.add("hidden");
+}
+
+
+// AFFICHAGE DE LA MODALE
+function fillModal(worksSent) {
+  document.querySelector(".idPhotosGallery").innerHTML = "";
+  HideWhenLogged();
+
+  for (let i in worksSent) {
+    let workSenti = worksSent[i];
+    const workCard = createElement("figure");
+    workCard.classList.add("workCard");
+    document.querySelector(".idPhotosGallery").appendChild(workCard);
+
+    // affichage de l'image
+    const workImg = createElement("img", ["cardImg"]);
+    workImg.setAttribute("crossorigin", "anonymous");
+    workImg.src = workSenti.imageUrl;
+    workCard.appendChild(workImg);
+
+    // affichage du titre de l'image
+    const workTitle = createElement("figcaption", ["cardfigcaption"]);
+    workTitle.innerText = "éditer";
+    workCard.appendChild(workTitle);
+    
+    // affichage de la poubelle
+    const trashImg = createElement("i", ["idDivTrash"]);
+    trashImg.classList.add("fa-solid","fa-trash-can");
+    workCard.appendChild(trashImg); 
+    
+    // affichage de l'icône de déplacement
+    const movingImg = createElement("i", ["idDivMoving"]);
+    movingImg.classList.add("fa-solid", "fa-arrows-up-down-left-right");
+    workCard.appendChild(movingImg);  
+  }
+  
 }

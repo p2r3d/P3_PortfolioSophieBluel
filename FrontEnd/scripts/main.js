@@ -22,7 +22,7 @@ fetchAPI().then(works => {
 
   if (sessionStorage.getItem("access_token")) {
     loggedUser();
+    displayModal();
+    fillModal(works);
   }
 });
-
-

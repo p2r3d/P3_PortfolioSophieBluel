@@ -34,7 +34,7 @@ form.addEventListener("submit", async function (event) {
 
         // test sur combinaison email/password
         if (response.status === 401) {
-          msg.innerText = "Combinaison email/mot de passe incorrecte";
+          msg.innerText = "Erreur dans l'identifiant ou le mot de passe";
         }
 
         // affichage message d'erreur 

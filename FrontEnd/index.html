@@ -15,6 +15,7 @@
 	<script src="./scripts/main.js" defer></script>
 	<script src="./scripts/dom.js" defer></script>
 	<script src="./scripts/storage.js" defer></script>
+	<script src="./scripts/modal.js" defer></script>
 </head>
 
 <body>
@@ -41,6 +42,7 @@
 		</div>
 	</header>
 	<main>
+		
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
@@ -58,6 +60,20 @@
 				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 			</article>
 		</section>
+
+		<aside id="modal1" class="modal" style="display:none" role="dialog" aria-hidden="true">
+			<div id="divX"><i class="fa-solid fa-xmark" id="idCloseX"></i>
+			<div class="divModal js-modal-stop">
+				
+				<p>Galerie photo</p>
+				<div class="idPhotosGallery">
+				</div>
+				<hr id="line">
+				<input type="submit" class="btn SelectedFilter" id="idAddPhotoBtn" value="Ajouter une photo">
+				<p id="idDeleteGallery">Supprimer la galerie</p>
+			</div>
+</div>
+		</aside>
 		<section id="portfolio">
 			<div class="divProjectTitle">
 				<h2>Mes Projets</h2>
@@ -65,6 +81,7 @@
 			</div>	
 			<div class="gallery">
 			</div>
+			<i class="fa-regular fa-trash-can"></i>
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>

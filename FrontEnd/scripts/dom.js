@@ -99,7 +99,7 @@ function HideWhenLogged() {
 }
 
 
-// AFFICHAGE DE LA MODALE
+// REMPLISSAGE DE LA MODALE
 function fillModal(worksSent) {
   document.querySelector(".idPhotosGallery").innerHTML = "";
   HideWhenLogged();
@@ -125,12 +125,26 @@ function fillModal(worksSent) {
     // affichage de la poubelle
     const trashImg = createElement("i", ["idDivTrash"]);
     trashImg.classList.add("fa-solid","fa-trash-can");
+
+    // si clic sur la poubelle 
+    trashImg.addEventListener("click", function (e) {
+      e.preventDefault();
+      workCard.style.display="none";
+      fetchDelete(workSenti.id);
+      // enlever le work de la liste et relancer displayworks
+      let WorkToDelete = worksSent.find(objet => objet.id === workSenti.id);
+      let indexToDelete = worksSent.indexOf(WorkToDelete);
+      worksSent.splice(indexToDelete, 1);
+      displayWorks(worksSent);
+      console.log(worksSent);
+    })
     workCard.appendChild(trashImg); 
  }
-  // affichage de l'icône de déplacement sur la 1ère photo
-  let card = document.querySelectorAll(".workCard");
+  
+ // affichage de l'icône de déplacement sur la 1ère photo
+  const card = document.querySelectorAll(".workCard");
   const movingImg = createElement("i", ["idDivMoving"]);
   movingImg.classList.add("fa-solid", "fa-arrows-up-down-left-right");
   card[0].appendChild(movingImg);  
-  let title = document.querySelectorAll(".cardfigcaption");
 }
+

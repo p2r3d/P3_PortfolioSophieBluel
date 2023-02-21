@@ -117,19 +117,20 @@ function fillModal(worksSent) {
     workCard.appendChild(workImg);
 
     // affichage du titre de l'image
-    const workTitle = createElement("figcaption", ["cardfigcaption"]);
+    const workTitle = createElement("figcaption");
     workTitle.innerText = "éditer";
+    workTitle.style.color="#000000";
     workCard.appendChild(workTitle);
-    
+  
     // affichage de la poubelle
     const trashImg = createElement("i", ["idDivTrash"]);
     trashImg.classList.add("fa-solid","fa-trash-can");
     workCard.appendChild(trashImg); 
-    
-    // affichage de l'icône de déplacement
-    const movingImg = createElement("i", ["idDivMoving"]);
-    movingImg.classList.add("fa-solid", "fa-arrows-up-down-left-right");
-    workCard.appendChild(movingImg);  
-  }
-  
+ }
+  // affichage de l'icône de déplacement sur la 1ère photo
+  let card = document.querySelectorAll(".workCard");
+  const movingImg = createElement("i", ["idDivMoving"]);
+  movingImg.classList.add("fa-solid", "fa-arrows-up-down-left-right");
+  card[0].appendChild(movingImg);  
+  let title = document.querySelectorAll(".cardfigcaption");
 }

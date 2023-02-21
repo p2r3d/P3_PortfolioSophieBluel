@@ -35,3 +35,10 @@ const stopPropagation = function(e) {
     link.addEventListener("click", openModal);
   }
 }
+
+// Fermerure modale après appui sur Esc
+/*window.addEventListener("keydown", function(e) {
+  if(e.key === "Escape" || e.key === "Esc") {
+    closeModal(e);
+  }
+})*/

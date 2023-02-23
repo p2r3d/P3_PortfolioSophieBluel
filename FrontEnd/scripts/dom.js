@@ -1,7 +1,7 @@
 // CREATION D'UN ELEMENT HTML
 function createElement(tagName, classes = []) {
   const element = document.createElement(tagName);
-  if (classes.length>0) {
+  if (classes.length > 0) {
     element.classList.add(...classes); // ... spread opérator, décompose le tableau en liste d'éléments individuels
   }
   return element;
@@ -10,7 +10,7 @@ function createElement(tagName, classes = []) {
 // AFFICHAGE DE LA GALERIE
 function displayWorks(worksSent) {
   document.querySelector(".gallery").innerHTML = "";
-  HideWhenLogged();
+  hideWhenConnected();
   const categoriesNames = new Set();
   for (let i in worksSent) {
     let workSenti = worksSent[i];
@@ -31,7 +31,7 @@ function displayWorks(worksSent) {
     // récup de la catégorie pour l'affichage ultérieur des filtres
     categoriesNames.add(workSenti.category.name);
   }
-  
+
   return (categoriesNames);
 }
 
@@ -40,7 +40,7 @@ function displayFilters(works, categoriesNames) {
   const portfolio = document.getElementById("portfolio");
 
   // conteneur filtres rattaché au portfolio
-  const filtersContainer = createElement("div",["filters"]);
+  const filtersContainer = createElement("div", ["filters"]);
   const ngallery = document.getElementsByClassName("gallery")[0];
   portfolio.insertBefore(filtersContainer, ngallery);
 
@@ -48,19 +48,19 @@ function displayFilters(works, categoriesNames) {
   const btnAll = createElement("button", ["btn", "SelectedFilter"]);
   btnAll.innerText = "Tous";
   filtersContainer.appendChild(btnAll);
-  btnAll.addEventListener("click", function() {
+  btnAll.addEventListener("click", function () {
     displayWorks(works);
     updateFilter(btnAll);
   })
 
   // affichage des boutons de filtre
   for (let categoryName of categoriesNames) {
-    const catButton = createElement("button",["btn"]);
+    const catButton = createElement("button", ["btn"]);
     catButton.innerText = categoryName;
     filtersContainer.appendChild(catButton);
-    
-    catButton.addEventListener("click", function() {
-      const FilteredWorks = works.filter(work => work.category.name==categoryName);
+
+    catButton.addEventListener("click", function () {
+      const FilteredWorks = works.filter(work => work.category.name == categoryName);
       displayWorks(FilteredWorks);
       updateFilter(catButton);
     });
@@ -76,22 +76,22 @@ function updateFilter(filterBtn) {
   filterBtn.classList.add("SelectedFilter");
 }
 
-// AFFICHAGE QUAND LOGGED
-function loggedUser() {
+// AFFICHAGE QUAND CONNECTÉ
+function displayWhenConnected() {
   const filters = document.getElementsByClassName("filters");
   filters[0].classList.add("hidden");
   const modifyLinks = document.getElementsByClassName("modifyLink");
   for (let modifyLink of modifyLinks) {
-    modifyLink.style.display="flex";
+    modifyLink.style.display = "flex";
   }
-    const headBand = document.getElementsByClassName("divheadband");
-  headBand[0].style.display = "flex";  
+  const headBand = document.getElementsByClassName("divheadband");
+  headBand[0].style.display = "flex";
 }
 
 // CACHAGE DU BANDEAU ET DES LIENS "MODIFIER"
-function HideWhenLogged() {
+function hideWhenConnected() {
   const modifyLinks = document.getElementsByClassName("modifyLink");
-  for (let modifyLink of modifyLinks){
+  for (let modifyLink of modifyLinks) {
     modifyLink.classList.add("hidden");
   }
   const headBand = document.getElementsByClassName("divheadband");
@@ -100,9 +100,9 @@ function HideWhenLogged() {
 
 
 // REMPLISSAGE DE LA MODALE
-function fillModal(worksSent) {
+function fillModal(worksSent, categoriesNames) {
   document.querySelector(".idPhotosGallery").innerHTML = "";
-  HideWhenLogged();
+  hideWhenConnected();
 
   for (let i in worksSent) {
     let workSenti = worksSent[i];
@@ -119,32 +119,77 @@ function fillModal(worksSent) {
     // affichage du titre de l'image
     const workTitle = createElement("figcaption");
     workTitle.innerText = "éditer";
-    workTitle.style.color="#000000";
+    workTitle.style.color = "#000000";
     workCard.appendChild(workTitle);
-  
+
     // affichage de la poubelle
     const trashImg = createElement("i", ["idDivTrash"]);
-    trashImg.classList.add("fa-solid","fa-trash-can");
+    trashImg.classList.add("fa-solid", "fa-trash-can");
 
     // si clic sur la poubelle 
     trashImg.addEventListener("click", function (e) {
       e.preventDefault();
-      workCard.style.display="none";
-      fetchDelete(workSenti.id);
+      workCard.style.display = "none";
+      //fetchDelete(workSenti.id);
       // enlever le work de la liste et relancer displayworks
       let WorkToDelete = worksSent.find(objet => objet.id === workSenti.id);
       let indexToDelete = worksSent.indexOf(WorkToDelete);
       worksSent.splice(indexToDelete, 1);
       displayWorks(worksSent);
       console.log(worksSent);
+
+      const catButton = createElement("button", ["btn"]);
+      catButton.innerText = categoryName;
+      filtersContainer.appendChild(catButton);
     })
-    workCard.appendChild(trashImg); 
- }
-  
- // affichage de l'icône de déplacement sur la 1ère photo
+    workCard.appendChild(trashImg);
+  }
+
+  // affichage de l'icône de déplacement sur la 1ère photo
   const card = document.querySelectorAll(".workCard");
   const movingImg = createElement("i", ["idDivMoving"]);
   movingImg.classList.add("fa-solid", "fa-arrows-up-down-left-right");
-  card[0].appendChild(movingImg);  
+  card[0].appendChild(movingImg);
+
+
+  // affichage du bouton "Ajouter une photo"
+  const AddPhotoBtn = document.querySelector("#idAddPhotoBtn");
+  AddPhotoBtn.addEventListener("click", async function (event) {
+    event.preventDefault();
+    displayAddPhotoModal(categoriesNames);
+  })
 }
 
+function displayAddPhotoModal(categoriesNames) {
+  document.querySelector(".idPhotosGallery").innerHTML = "";
+
+  document.querySelector("#addPhotoForm").style.display = "";
+  document.querySelector("#idAddPhotoBtn").style.display = "none";
+  document.querySelector("#idDeleteGallery").style.display = "none";
+
+  document.querySelector("#modalTitle").innerText = "Ajout photo";
+
+  // affichage de la mini photo
+  const inputPhotoBtn = document.querySelector("#workAddPhotoInput");
+  inputPhotoBtn.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    console.log(file);
+    const inputPhoto = document.querySelector("#miniPhoto");
+    inputPhoto.style.display = "";
+    const divImportPhoto = document.querySelector("#divImportPhoto");
+    divImportPhoto.style.display = "none";
+    inputPhoto.src = URL.createObjectURL(file);
+  })
+
+  //remplissage de la liste des catégories
+  const selectCategories = document.getElementById("photoCategories");
+  for (let category of categoriesNames){
+    console.log(category);
+    const cat = createElement("option",["selectCat"]);
+    cat.innerText=category;
+    selectCategories.appendChild(cat);
+  }
+
+
+  fetchAddWork();
+}

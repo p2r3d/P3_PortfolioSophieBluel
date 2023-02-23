@@ -451,7 +451,6 @@ a {
 	font-weight: 600;
 }
 
-
 /* --------------partie Contact-------------- */
 #contact {
 	width: 34%;
@@ -583,16 +582,24 @@ footer nav ul li {
 	align-self: center;
 	margin-bottom: 0;
 	margin-top: 48px;
+	padding: 0 48px;
+	font-size: 14px;
+	font-family: "Syne";
+	cursor: pointer;
 }
-#divX {
- position:absolute;
 
+#idAddPhotoBtn:hover {
+	background-color: #0E2F28;
+}
+
+#divX {
+	position: absolute;
 }
 
 #idCloseX {
 	position: absolute;
 	top: 2%;
-	left:95%;
+	left: 95%;
 	font-size: 24px;
 	cursor: pointer;
 }
@@ -669,4 +676,103 @@ footer nav ul li {
 
 .show {
 	display: inline-block;
+}
+
+#addPhotoForm {
+	display: flex;
+	flex-direction: column;
+}
+
+#divBlue {
+	width: 420px;
+	background-color: #E8F1F6;
+}
+
+#divImportPhoto {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#divImportPhoto p {
+	font-size: 10px;
+	padding: 7px;
+}
+
+#divImportPhoto i {
+	padding: 26px 0 21px;
+	font-size: 60px;
+	opacity: 0.2;
+}
+
+#addPhotoBtn input[type="file"] {
+	display: none;
+}
+
+#addPhotoBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #CBD6DC;
+	width: 173px;
+	height: 36px;
+	font-weight: 500;
+	color: #306685;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+#divFormAddPhoto {
+	display: flex;
+	flex-direction: column;
+}
+
+#divFormAddPhoto input {
+	display: flex;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	outline: none;
+	padding-left: 16px;
+	color :#444444;
+	font-weight: 400;
+}
+
+#divFormAddPhoto label {
+	margin: 2em 0 1em 0;
+	color: #3D3D3D;
+	font-weight: 500;
+}
+
+#divFormAddPhoto input[type="submit"] {
+	font-family: 'Syne';
+	font-weight: 700;
+	background-color: #1D6154;
+	color : #FFFFFF;
+	width: 237;
+	height: 36px;
+	text-align: center;
+	border-radius: 60px;
+	padding : 0 49px;
+}
+
+#divFormAddPhoto input[type="submit"]:hover {
+	background-color: #0E2F28;
+}
+
+#miniPhoto {
+	width: 100%;
+	height: 160px;
+	object-fit: contain;
+}
+
+#divFormAddPhoto select {
+	font-family: "Work Sans";
+	color:#444444;
+	display: flex;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	background-color: #FFFFFF;
+	padding-left: 16px;
 }

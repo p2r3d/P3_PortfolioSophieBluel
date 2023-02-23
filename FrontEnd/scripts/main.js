@@ -21,8 +21,8 @@ fetchAPI().then(works => {
   displayFilters(works, categoriesNames);
 
   if (sessionStorage.getItem("access_token")) {
-    loggedUser();
+    displayWhenConnected();
     displayModal();
-    fillModal(works);
+    fillModal(works, categoriesNames);
   }
 });

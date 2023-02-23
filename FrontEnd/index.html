@@ -17,6 +17,7 @@
 	<script src="./scripts/logout.js" defer></script>
 	<script src="./scripts/modal.js" defer></script>
 	<script src="./scripts/delete.js" defer></script>
+	<script src="./scripts/add.js" defer></script>
 </head>
 
 <body>
@@ -43,15 +44,16 @@
 		</div>
 	</header>
 	<main>
-		
+
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
 				<div id="divModifyLink">
-					<a href="#modal1" class="modifyLink" style="display:none"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+					<a href="#modal1" class="modifyLink" style="display:none"><i
+							class="fa-regular fa-pen-to-square"></i>modifier</a>
 				</div>
 			</figure>
-		<article>
+			<article>
 				<h2>Designer d'espace</h2>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale
 					du chantier.</p>
@@ -64,22 +66,50 @@
 
 		<aside id="modal1" class="modal" style="display:none" role="dialog" aria-hidden="true">
 			<div id="divX"><i class="fa-solid fa-xmark" id="idCloseX"></i>
-			<div class="divModal js-modal-stop">
-				
-				<p>Galerie photo</p>
-				<div class="idPhotosGallery">
+				<div class="divModal js-modal-stop">
+					<p id="modalTitle">Galerie photo</p>
+					<div class="idPhotosGallery">
+					</div>
+					<form id="addPhotoForm" action="#" method="post" style="display:none">
+						<div id="divBlue">
+							<div id="divImportPhoto">
+								<i class="fa-regular fa-image"></i>
+								<label for="workAddPhotoInput" id="addPhotoBtn">+ Ajouter photo
+									<input type="file" id="workAddPhotoInput" placeholder="Ajouter photo" name="workPhoto"
+										accept="image/png, image/jpeg" required>
+								</label>
+								<p>jpg, png : 4mo max</p>
+							</div>
+							<div>
+								<img id="miniPhoto" style="display:none">
+							</div>
+
+						</div>
+						<div id="divFormAddPhoto">
+							<label for="title">Titre</label>
+							<input type="text" name="titleInput" id="idTitleAddPhoto">
+							<label for="category">Catégorie</label>
+							<select id="photoCategories" required>
+							<input type="submit" value="Valider">
+						</div>
+					</form>
+
+
+					<hr id="line">
+					<input type="submit" class="btn SelectedFilter" id="idAddPhotoBtn" value="Ajouter une photo">
+					<p id="idDeleteGallery">Supprimer la galerie</p>
 				</div>
-				<hr id="line">
-				<input type="submit" class="btn SelectedFilter" id="idAddPhotoBtn" value="Ajouter une photo">
-				<p id="idDeleteGallery">Supprimer la galerie</p>
 			</div>
-</div>
 		</aside>
+
+
+
 		<section id="portfolio">
 			<div class="divProjectTitle">
 				<h2>Mes Projets</h2>
-				<a href="#modal1" class="modifyLink" style="display:none"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
-			</div>	
+				<a href="#modal1" class="modifyLink" style="display:none"><i
+						class="fa-regular fa-pen-to-square"></i>modifier</a>
+			</div>
 			<div class="gallery">
 			</div>
 		</section>
